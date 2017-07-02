@@ -8,44 +8,97 @@
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!-- UIkit CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+
+
+  <!-- Compiled and minified JavaScript -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+
+    <!-- <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" /> -->
 
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
   </head>
 
   <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
 
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
+    <div class="main">
+  <style media="screen">
+  body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  }
 
-          <nav>
-            <a href="{{ site.baseurl }}/">Blog</a>
-            <a href="{{ site.baseurl }}/about">About</a>
-          </nav>
-        </header>
-      </div>
-    </div>
+  main {
+  flex: 1 0 auto;
+  }
+
+  </style>
+
+    <nav class="{{site.color}}">
+   <div class="nav-wrapper">
+     <a href="{{ site.baseurl }}/" class="brand-logo">{{site.name}}</a>
+     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+     <ul class="right hide-on-med-and-down">
+       <li><a href="{{ site.baseurl }}/">Blog</a></li>
+       <li><a href="{{ site.baseurl }}/about">About</a></li>
+
+     </ul>
+     <ul class="side-nav" id="mobile-demo">
+       <li><a href="{{ site.baseurl }}/">Blog</a></li>
+       <li><a href="{{ site.baseurl }}/about">About</a></li>
+
+     </ul>
+   </div>
+ </nav>
+
+
+
+
 
     <div id="main" role="main" class="container">
       {{ content }}
     </div>
 
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-      </div>
-    </div>
 
-    {% include analytics.html %}
+    <footer class="page-footer {{site.color}}">
+              <div class="container">
+                <div class="row">
+                  <div class="col l6 s12">
+                    <h5 class="white-text">{{site.name}}</h5>
+                    <p class="grey-text text-lighten-4">{{site.description}}</p>
+                  </div>
+                  <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                          {% include icons.html %}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="footer-copyright">
+                <div class="container">
+                © 2017 {{site.name}}
+
+                </div>
+              </div>
+            </footer>
+
+</main>
+
+
+
+    <script>
+    $(".button-collapse").sideNav();
+</script>
+  {% include analytics.html %}
+
   </body>
 </html>

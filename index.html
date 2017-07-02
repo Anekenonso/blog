@@ -2,17 +2,24 @@
 layout: default
 ---
 
-<div class="posts">
+
+
+<div class="row">
   {% for post in site.posts %}
-    <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+         <div class="col s12 m6 ">
+           <div class="card {{site.color}} darken-1 hoverable">
+             <div class="card-content white-text">
+               <span class="card-title">{{post.title}}</span>
+               <p>{{post.excerpt}}</p>
+             </div>
+             <div class="card-action">
+               <a href="#">{{post.date | date: "%B %e, %Y" }}</a>
+               <a href="{{ site.baseurl }}{{ post.url }}">Read more</a>
+             </div>
+           </div>
+         </div>
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
   {% endfor %}
 </div>
